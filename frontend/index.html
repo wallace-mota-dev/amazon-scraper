@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amazon Product Scraper</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Amazon Product Scraper</h1>
+
+      <form id="search-form">
+        <input
+          type="text"
+          id="keyword"
+          placeholder="Enter product keyword (e.g., headphones)"
+          required
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      <div id="loading" style="display: none">
+        <p>Loading products...</p>
+      </div>
+
+      <div id="results" class="products-grid"></div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
