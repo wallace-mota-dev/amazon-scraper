@@ -2,6 +2,8 @@
 
 A web scraper that extracts product listings (title, rating, reviews, image) from Amazon's first search results page.
 
+![Scraper Demo ](./github/Amazon-Product-Scraper.gif)
+
 ## Features
 
 - **Backend**: Scrapes Amazon using Axios + JSDOM or Puppeteer (fallback)
