@@ -1,17 +1,19 @@
 # Amazon Product Scraper
 
-![Node.js](https://img.shields.io/badge/Node.js-18%2B-green)
-![Bun](https://img.shields.io/badge/Bun-1.0-blue)
-![License](https://img.shields.io/badge/License-MIT-orange)
+A web scraper that extracts product listings (title, rating, reviews, image) from Amazon's first search results page.
 
-## 📋 Description
+## Features
 
-A complete API for scraping Amazon products with:
+- **Backend**: Scrapes Amazon using Axios + JSDOM or Puppeteer (fallback)
+- **Frontend**: Clean UI with search input and results grid
+- **Error Handling**: Graceful degradation for blocked requests
+- **Proxies**: Rotation to avoid IP blocking
+- **Debug**: Saves HTML snapshots for troubleshooting
 
-- Backend built with Bun/Node.js
-- Frontend powered by Vite.js
-- Multiple anti-blocking strategies
-- Intuitive web interface
+## Technologies
+
+- **Backend**: Bun, Express, Axios, JSDOM, Puppeteer
+- **Frontend**: Vite, Vanilla JS, CSS
 
 ## 🚀 Installation
 
@@ -67,7 +69,7 @@ Access the app at: http://localhost:5173
 ** Example: **
 curl "http://localhost:3000/api/scrape?keyword=iphone"
 
-# Resposta
+# Response
 
 {
 "success": true,
