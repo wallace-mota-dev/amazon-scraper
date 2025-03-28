@@ -3,8 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amazon Product Scraper</title>
+    <link rel="icon" type="image/svg+xml" href="./public/amazon-icon.svg" />
     <link rel="stylesheet" href="/src/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Amazon Product Scraper</title>
   </head>
   <body>
     <div class="container">
@@ -17,7 +22,9 @@
           placeholder="Enter product keyword (e.g., headphones)"
           required
         />
-        <button type="submit">Search</button>
+        <button type="submit">
+          <i class="fas fa-search"></i>
+        </button>
       </form>
 
       <div id="loading" style="display: none">

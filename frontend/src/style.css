@@ -1,16 +1,31 @@
+:root {
+  --white: #fff;
+  --gray-100: #e3e6e6;
+  --gray-300: #c4c4cc;
+  --gray-400: #8d8d99;
+  --gray-600: #323238;
+  --gray-700: #29292e;
+  --gray-800: #202024;
+  --gray-900: #121214;
+  --blue-500: #2162a1;
+  --yellow-300: #f3a847;
+  --yellow-500: #d89640;
+  --red-500: #f75a68;
+}
+
 body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
   margin: 0;
   padding: 20px;
-  background-color: #f5f5f5;
-  color: #333;
+  background: var(--gray-100);
+  color: var(--gray-700);
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  background: white;
+  background: var(--white);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -18,7 +33,7 @@ body {
 
 h1 {
   text-align: center;
-  color: #232f3e;
+  color: var(--gray-900);
 }
 
 #search-form {
@@ -30,15 +45,15 @@ h1 {
 #keyword {
   flex: 1;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--gray-300);
   border-radius: 4px;
   font-size: 16px;
 }
 
 button {
   padding: 10px 20px;
-  background-color: #ff9900;
-  color: white;
+  background-color: var(--yellow-300);
+  color: var(--white);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -47,7 +62,15 @@ button {
 }
 
 button:hover {
-  background-color: #e88a00;
+  background-color: var(--yellow-500);
+}
+
+.fa-search {
+  color: var(--gray-700);
+}
+
+.fa-search:hover {
+  color: var(--gray-800);
 }
 
 .products-grid {
@@ -60,7 +83,7 @@ button:hover {
 .product {
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 15px;
+  padding: 0.9375rem;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -73,7 +96,7 @@ button:hover {
   width: 100%;
   height: 200px;
   object-fit: contain;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--gray-300);
   margin-bottom: 10px;
   padding-bottom: 10px;
 }
@@ -81,16 +104,16 @@ button:hover {
 .product h3 {
   margin: 0 0 10px;
   font-size: 16px;
-  color: #0066c0;
+  color: var(--blue-500);
 }
 
 .rating {
-  color: #ff9900;
+  color: var(--blue-500);
   font-weight: bold;
 }
 
 .error {
-  color: #d00;
+  color: var(--red-500);
   text-align: center;
   padding: 20px;
 }
