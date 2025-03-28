@@ -1,11 +1,14 @@
+/**
+ * Amazon Product Scraper - CSS Styles
+ * Optimized version with only essential styles
+ */
+
+/* Color variables */
 :root {
   --white: #fff;
   --gray-100: #e3e6e6;
   --gray-300: #c4c4cc;
-  --gray-400: #8d8d99;
-  --gray-600: #323238;
   --gray-700: #29292e;
-  --gray-800: #202024;
   --gray-900: #121214;
   --blue-500: #2162a1;
   --yellow-300: #f3a847;
@@ -13,15 +16,16 @@
   --red-500: #f75a68;
 }
 
+/* Base styles */
 body {
   font-family: 'Arial', sans-serif;
-  line-height: 1.6;
   margin: 0;
   padding: 20px;
   background: var(--gray-100);
   color: var(--gray-700);
 }
 
+/* Layout container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -31,11 +35,13 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Typography */
 h1 {
   text-align: center;
   color: var(--gray-900);
 }
 
+/* Search form */
 #search-form {
   display: flex;
   margin-bottom: 20px;
@@ -50,6 +56,7 @@ h1 {
   font-size: 16px;
 }
 
+/* Buttons */
 button {
   padding: 10px 20px;
   background-color: var(--yellow-300);
@@ -65,14 +72,7 @@ button:hover {
   background-color: var(--yellow-500);
 }
 
-.fa-search {
-  color: var(--gray-700);
-}
-
-.fa-search:hover {
-  color: var(--gray-800);
-}
-
+/* Products grid */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -80,10 +80,11 @@ button:hover {
   margin-top: 20px;
 }
 
+/* Product cards */
 .product {
-  border: 1px solid #ddd;
+  border: 1px solid var(--gray-300);
   border-radius: 8px;
-  padding: 0.9375rem;
+  padding: 15px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -107,11 +108,13 @@ button:hover {
   color: var(--blue-500);
 }
 
+/* Rating display */
 .rating {
   color: var(--blue-500);
   font-weight: bold;
 }
 
+/* Error messages */
 .error {
   color: var(--red-500);
   text-align: center;

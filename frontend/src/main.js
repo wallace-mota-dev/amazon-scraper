@@ -1,3 +1,7 @@
+/**
+ * Amazon Product Scraper - Frontend JavaScript
+ * Handles search form submission and displays results
+ */
 document.addEventListener('DOMContentLoaded', () => {
   const searchForm = document.getElementById('search-form');
   const keywordInput = document.getElementById('keyword');
@@ -8,44 +12,50 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     const keyword = keywordInput.value.trim();
 
+    // Validate input
     if (!keyword) {
       alert('Please enter a search keyword');
       return;
     }
 
     try {
+      // Show loading state
       loadingIndicator.style.display = 'block';
       resultsContainer.innerHTML = '';
 
+      // Fetch data from backend
       const response = await fetch(
-        `http://localhost:3000/api/scrape?keyword=${encodeURIComponent(keyword)}`
+        `http://localhost:3000/api/scrape?keyword=${encodeURIComponent(
+          keyword
+        )}`
       );
 
       if (!response.ok) {
-        throw new Error('Failed to fetch data');
+        throw new Error('Failed to fetch data from server');
       }
 
-      const result = await response.json();
+      const { success, data, error } = await response.json();
 
-      // Esconder loading
+      // Hide loading indicator
       loadingIndicator.style.display = 'none';
 
-      // Verificar se há dados
-      if (!result.success || !result.data || result.data.length === 0) {
-        resultsContainer.innerHTML = '<p>No products found. Try a different keyword.</p>';
+      // Handle empty results
+      if (!success || !data || data.length === 0) {
+        resultsContainer.innerHTML =
+          '<p class="error">No products found. Try a different keyword.</p>';
         return;
       }
 
-      // Limpar container antes de adicionar novos resultados
+      // Clear previous results
       resultsContainer.innerHTML = '';
 
-      // Criar elementos para cada produto
-      result.data.forEach(product => {
+      // Render product cards
+      data.forEach(product => {
         if (!product.title || product.title === 'N/A') return;
 
         const productElement = document.createElement('div');
         productElement.className = 'product';
-        
+
         productElement.innerHTML = `
           <img src="${product.imageUrl || 'https://via.placeholder.com/150'}" 
                alt="${product.title}" 
@@ -56,22 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
             (${product.reviews || '0'} reviews)
           </div>
         `;
-        
+
         resultsContainer.appendChild(productElement);
       });
-
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Fetch error:', error);
       loadingIndicator.style.display = 'none';
-      
-      let errorMsg = 'Failed to load products. ';
-      if (error.response?.data?.solution) {
-        errorMsg += error.response.data.solution;
-      } else {
-        errorMsg += 'Please try again later.';
-      }
-      
-      resultsContainer.innerHTML = `<p class="error">${errorMsg}</p>`;
+      resultsContainer.innerHTML = `
+        <p class="error">
+          Failed to load products. ${error.message || 'Please try again later.'}
+        </p>
+      `;
     }
   });
 });
