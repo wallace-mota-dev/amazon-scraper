@@ -31,7 +31,7 @@ npm install
 
 ## 🏗️ Project Structure
 
-amazon-scraper/
+```amazon-scraper/
 ├── backend/
 │ ├── server.js # Scraping logic
 │ ├── debug/ # HTML files for debugging
@@ -41,6 +41,7 @@ amazon-scraper/
 │ ├── public/
 │ └── package.json
 └── README.md
+```
 
 ## 💻 Running the Application
 
